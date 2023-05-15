@@ -1,10 +1,10 @@
-package com.lastminute.common
+package com.lastminute.ui.search
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import com.lastminute.aos.databinding.ViewSearchBarBinding
+import com.lastminute.ui.databinding.ViewSearchBarBinding
 
 class SearchBar (
     context: Context,

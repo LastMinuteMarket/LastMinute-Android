@@ -1,4 +1,4 @@
-package com.lastminute.aos
+package com.lastminute.ui
 
 import org.junit.Test
 

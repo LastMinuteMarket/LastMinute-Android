@@ -12,4 +12,7 @@
     <string name="all_paid">즉시사용</string>
     <string name="booked">예약양도</string>
 
+    <!--  검색창  -->
+    <string name="search_hint">카테고리, 제품명으로 검색하세요</string>
+
 </resources>

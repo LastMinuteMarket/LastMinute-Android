@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.UiThread
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.lastminute.common.BaseFragment
+import com.lastminute.model.internal.ProductSummary
 import com.lastminute.ui.R
 import com.lastminute.ui.databinding.FragmentSearchBinding
 import com.naver.maps.geometry.LatLng
@@ -17,32 +19,58 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
+import java.time.LocalDateTime
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search), OnMapReadyCallback {
-    private var naverMap: NaverMap? = null
+    private lateinit var naverMap: NaverMap
+    private lateinit var productListAdapter: ProductListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Get a reference to the MotionLayout, which is acting as our bottom sheet
-        val motionLayout = binding.bottomSheet
+        initAdapter()
 
-        // Get a reference to the layout params
-        val layoutParams = motionLayout.layoutParams as CoordinatorLayout.LayoutParams
+//        // Get a reference to the MotionLayout, which is acting as our bottom sheet
+//        val motionLayout = binding.mlProducts
+//
+//        // Get a reference to the layout params
+//        val layoutParams = motionLayout.layoutParams as ConstraintLayout.LayoutParams
+//
+//        // Get a reference to the BottomSheetBehaviour
+//        val bottomSheetBehavior = layoutParams.behavior as BottomSheetBehavior
+//
+//        // Add a callback to the bottom sheet so we can get the slide offset
+//        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+//            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+//                // When the slide offset changes, set it as the progress of the motion layout.
+//                // This "transitions" between the start and end sets of constraints as the user slides the sheet.
+//                motionLayout.progress = slideOffset
+//            }
+//
+//            override fun onStateChanged(bottomSheet: View, newState: Int) {}
+//        })
+    }
 
-        // Get a reference to the BottomSheetBehaviour
-        val bottomSheetBehavior = layoutParams.behavior as BottomSheetBehavior
+    private fun initAdapter() {
+        productListAdapter = ProductListAdapter {  }
+        binding.rvProducts.adapter = productListAdapter
 
-        // Add a callback to the bottom sheet so we can get the slide offset
-        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                // When the slide offset changes, set it as the progress of the motion layout.
-                // This "transitions" between the start and end sets of constraints as the user slides the sheet.
-                motionLayout.progress = slideOffset
-            }
+        // 더미 데이터
+        val dummy = listOf<ProductSummary>(
+            ProductSummary("펀방탈출", "고장난모니터 (2인)", LocalDateTime.of(2023, 5, 12, 19, 0), "40,000원", "30,000원", "23", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("오마카세 오이시", "런치코스 (2인)", LocalDateTime.of(2023, 5, 15, 20, 0), "100,000원", "70,000원", "12", ProductSummary.ProductType.BOOKED),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID),
+            ProductSummary("가나다라", "졸려 (4인)", LocalDateTime.of(2023, 5, 13, 12, 0), "50,000원", "10,000원", "7", ProductSummary.ProductType.ALL_PAID)
+        )
+        productListAdapter.putData(dummy)
 
-            override fun onStateChanged(bottomSheet: View, newState: Int) {}
-        })
     }
 
     /**
@@ -51,6 +79,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     @UiThread
     override fun onMapReady(map: NaverMap) {
         this.naverMap = map
+        this.naverMap.mapType = NaverMap.MapType.Navi
         map.uiSettings.isLocationButtonEnabled = true
 
         markAt(37.5061 , 126.9580, "원조 방탈출")

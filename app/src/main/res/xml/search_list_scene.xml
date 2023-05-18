@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
 
-    <!-- Indicates the start and end states of the transition -->
+    <ConstraintSet android:id="@+id/const_search_start">
+        <Constraint
+            android:id="@+id/cl_products"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"/>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/const_search_end">
+        <Constraint
+            android:id="@+id/cl_products"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            motion:layout_constraintTop_toBottomOf="@+id/et_search"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
 
     <Transition
-        app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@id/start" />
+        motion:constraintSetStart="@id/const_search_start"
+        motion:constraintSetEnd="@id/const_search_end"
+        motion:duration="1000">
 
-    <!-- The actual start state of the transition -->
+        <OnSwipe
+            motion:touchAnchorId="@id/cl_products"
+            motion:touchRegionId="@id/cl_products"
+            motion:dragDirection="dragUp" />
+    </Transition>
 
-    <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@+id/button_sticky"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:layout_constraintTop_toTopOf="parent" />
-    </ConstraintSet>
-
-    <!-- The actual end state of the transition -->
-
-    <ConstraintSet android:id="@+id/end">
-        <Constraint
-            android:id="@id/button_sticky"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </ConstraintSet>
 </MotionScene>

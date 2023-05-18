@@ -1,6 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="data"
+            type="com.lastminute.model.internal.ProductSummary" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="18dp">
+
+        <TextView
+            android:id="@+id/tv_product_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/notosans_kr_medium"
+            android:includeFontPadding="false"
+            android:text="@{data.title}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="펀방탈출" />
+
+        <TextView
+            android:id="@+id/tv_product_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:text="@{data.menu}"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_title"
+            tools:text="고장난모니터 (2인)" />
+
+        <TextView
+            android:id="@+id/tv_product_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/dark_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_product_price_prefix"
+            app:layout_constraintStart_toStartOf="parent"
+            app:showLocalDateTime="@{data.time}"
+            tools:text="5월 19일 오후 6:30" />
+
+        <ImageView
+            android:id="@+id/iv_product_like"
+            android:layout_width="12sp"
+            android:layout_height="12sp"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            android:layout_marginEnd="5dp"
+            app:tint="@color/gray" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:text="@{data.likes}"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="23" />
+
+        <TextView
+            android:id="@+id/tv_product_paid_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="120sp"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/paid_price"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/tv_product_price_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:text="@{data.type.activate ? @string/all_paid : @string/booked}"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:activateColor="@{@color/blue}"
+            app:defaultColor="@{@color/black}"
+            app:given="@{data.type.activate}"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_paid_prefix"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_paid_prefix"
+            tools:text="즉시사용" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:text="@{data.paid}"
+            app:showStrikeThrough="@{true}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_product_paid_prefix"
+            app:layout_constraintBottom_toBottomOf="@id/tv_product_paid_prefix"
+            tools:text="40,000원" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:text="@{data.price}"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:activateColor="@{@color/blue}"
+            app:defaultColor="@{@color/black}"
+            app:given="@{data.type.activate}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_product_price_prefix"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="30,000원" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

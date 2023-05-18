@@ -7,11 +7,15 @@
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/ml_products"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/search_list_scene"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <FrameLayout
+            android:id="@+id/fl_map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".search.SearchFragment">
@@ -24,25 +28,62 @@
 
         </FrameLayout>
 
-        <androidx.constraintlayout.motion.widget.MotionLayout
-            android:id="@+id/bottom_sheet"
+        <EditText
+            android:id="@+id/et_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/gray"
-            app:behavior_hideable="true"
-            app:behavior_peekHeight="70dp"
-            app:layoutDescription="@xml/search_list_scene"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_search_15"
+            android:drawableTint="@color/dark_gray"
+            android:drawablePadding="11dp"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/dark_gray"
+            android:background="@drawable/rectangle_round_12"
+            android:paddingVertical="11dp"
+            android:paddingHorizontal="19dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"
+            android:hint="@string/search_hint"
+            android:elevation="8dp"/>
 
-            <Button
-                android:id="@+id/button_sticky"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="Button"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_round_above"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="10dp"
+            android:paddingHorizontal="24dp">
 
-        </androidx.constraintlayout.motion.widget.MotionLayout>
+            <View
+                android:id="@+id/view_product_list_point"
+                android:layout_width="36dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/rectangle_round_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_product_list_point"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_place_list" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </layout>

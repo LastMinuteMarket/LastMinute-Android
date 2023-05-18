@@ -102,25 +102,14 @@
                 app:layout_constraintStart_toEndOf="@id/tv_post_time"
                 app:layout_constraintTop_toTopOf="@+id/tv_post_time" />
 
-            <TextView
-                android:id="@+id/tv_date"
+            <com.lastminute.ui.post.DatePickButton
+                android:id="@+id/btn_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_calendar"
-                android:drawablePadding="8dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="11dp"
-                android:background="@drawable/rectangle_round_stroke_8"
-                android:fontFamily="@font/notosans_kr_regular"
-                android:includeFontPadding="false"
-                android:paddingHorizontal="19dp"
-                android:paddingVertical="7dp"
-                android:textColor="@color/black"
-                android:textSize="12sp"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="12dp"
                 app:layout_constraintStart_toStartOf="@+id/tv_post_place"
-                app:layout_constraintTop_toBottomOf="@+id/tv_post_time"
-                tools:text="2023년 5월 19일" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_post_time" />
 
             <TextView
                 android:id="@+id/tv_time"
@@ -136,9 +125,9 @@
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:layout_marginStart="14dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_date"
-                app:layout_constraintStart_toEndOf="@+id/tv_date"
-                app:layout_constraintTop_toTopOf="@+id/tv_date"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_date"
+                app:layout_constraintStart_toEndOf="@+id/btn_date"
+                app:layout_constraintTop_toTopOf="@+id/btn_date"
                 tools:text="오후 3:00" />
 
             <TextView
@@ -152,7 +141,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="@+id/tv_post_place"
-                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_date" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -295,6 +284,8 @@
                 android:paddingVertical="7dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
+                android:textIsSelectable="false"
+                android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="@+id/btn_place_search"
                 app:layout_constraintStart_toStartOf="@+id/tv_num_peoples"
                 app:layout_constraintTop_toBottomOf="@+id/tv_paid"
@@ -313,14 +304,59 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_post_place"
                 app:layout_constraintTop_toBottomOf="@+id/et_paid" />
 
-            <ListView
+            <TextView
+                android:id="@+id/tv_post_price_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/post_today"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_post_price"
+                app:layout_constraintTop_toBottomOf="@+id/tv_post_price" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_required"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_post_price_today"
+                app:layout_constraintStart_toEndOf="@+id/tv_post_price_today"
+                app:layout_constraintTop_toTopOf="@+id/tv_post_price_today" />
+
+            <com.lastminute.ui.post.PriceSelectLayout
+                android:id="@+id/cl_price_today"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_post_price_today"
+                app:layout_constraintTop_toBottomOf="@+id/tv_post_price_today"
+                app:layout_constraintEnd_toEndOf="@id/btn_place_search" />
+
+            <View
+                android:id="@+id/gray_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintStart_toStartOf="@id/cl_price_today"
+                app:layout_constraintEnd_toEndOf="@id/cl_price_today"
+                app:layout_constraintTop_toBottomOf="@id/cl_price_today"
+                android:background="@color/gray" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lv_post_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_post_price"
-                app:layout_constraintStart_toStartOf="@id/tv_post_price"
-                app:layout_constraintEnd_toEndOf="parent" />
+                tools:listitem="@layout/item_price_list"
+                tools:itemCount="1"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never"
+                app:layout_constraintEnd_toEndOf="@+id/cl_price_today"
+                app:layout_constraintStart_toStartOf="@+id/cl_price_today"
+                app:layout_constraintTop_toBottomOf="@id/gray_line" />
 
             <ImageButton
                 android:id="@+id/btn_add_price"

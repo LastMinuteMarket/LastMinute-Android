@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_round_stroke_8"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/notosans_kr_regular"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="19dp"
+        android:paddingVertical="7dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2023년 5월 19일" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

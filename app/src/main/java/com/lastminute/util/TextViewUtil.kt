@@ -2,6 +2,7 @@ package com.lastminute.util
 
 import android.graphics.Color
 import android.graphics.Paint
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.TypedArrayUtils.getText
@@ -34,4 +35,9 @@ fun TextView.showLocalDateTime(time: LocalDateTime) {
 fun TextView.setTextColorWhen(given: Boolean, activateColor: Int, defaultColor: Int) {
     if (given) setTextColor(activateColor)
     else setTextColor(defaultColor)
+}
+
+@BindingAdapter("setIntegerText")
+fun EditText.setIntegerText(value: Integer) {
+    setText(value.toString())
 }

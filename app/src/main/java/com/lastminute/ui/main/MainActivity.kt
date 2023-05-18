@@ -16,24 +16,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         initBottomNavigation()
     }
 
     private fun initBottomNavigation() {
+
         binding.btNvMain.run {
             setOnItemSelectedListener { item ->
-                
-                when(item.itemId) {
+
+                when (item.itemId) {
                     R.id.navigation_search -> {
                         changeFragment(R.id.fragment_container_main, SearchFragment())
+                        return@setOnItemSelectedListener true
                     }
                     R.id.navigation_post -> {
                         changeFragment(R.id.fragment_container_main, PostFragment())
+                        return@setOnItemSelectedListener true
                     }
                 }
-                true
+                false
             }
 
             // default fragment

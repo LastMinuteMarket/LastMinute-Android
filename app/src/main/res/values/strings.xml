@@ -28,7 +28,7 @@
     <string name="post_paid">지불한 예약금</string>
     <string name="post_price">판매가격</string>
     <string name="post_additional">추가설명</string>
-    <string name="post_today">오늘</string>
+    <string name="post_today">오늘부터</string>
     <string name="post_since">부터</string>
     <string name="post_apply">등록하기</string>
     <string name="post_additional_hint">상품을 소개해주세요.</string>

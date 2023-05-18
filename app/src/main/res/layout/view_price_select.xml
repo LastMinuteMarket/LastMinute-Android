@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="priceData"
+            type="com.lastminute.ui.post.PriceSelectLayout.PriceField" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_percent"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_round_stroke_8"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:inputType="numberDecimal"
+            android:paddingVertical="7dp"
+            android:paddingStart="15dp"
+            android:textColor="@color/black"
+            android:textIsSelectable="false"
+            android:textSize="12sp"
+            android:maxLength="2"
+            android:text="@={priceData.percent}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="75" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_percent"
+            android:layout_marginEnd="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_percent"
+            app:layout_constraintEnd_toEndOf="@+id/et_percent"
+            app:layout_constraintTop_toTopOf="@+id/et_percent" />
+
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:background="@drawable/rectangle_round_stroke_8"
+            android:drawableLeft="@drawable/ic_won"
+            android:drawablePadding="7dp"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"
+            android:inputType="numberDecimal"
+            android:paddingHorizontal="19dp"
+            android:paddingVertical="7dp"
+            android:textColor="@color/black"
+            android:textIsSelectable="false"
+            android:textSize="12sp"
+            android:text="@={priceData.price}"
+            app:layout_constraintBottom_toBottomOf="@+id/et_percent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/et_percent"
+            app:layout_constraintTop_toTopOf="@+id/et_percent"
+            tools:text="100,000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

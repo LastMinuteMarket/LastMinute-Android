@@ -6,7 +6,7 @@
     <string name="navigation_post">올리기</string>
     <string name="navigation_notification">알림</string>
     <string name="navigation_mypage">내 정보</string>
-    
+
     <!-- 상품 목록  -->
     <string name="paid_price">예약금</string>
     <string name="all_paid">즉시사용</string>
@@ -14,5 +14,23 @@
 
     <!--  검색창  -->
     <string name="search_hint">카테고리, 제품명으로 검색하세요</string>
-
+    
+    <!--  올리기 창  -->
+    <string name="post_place">사용처</string>
+    <string name="post_place_search">검색</string>
+    <string name="post_place_hint">사용처를 검색해주세요.</string>
+    <string name="post_time">예약 시각</string>
+    <string name="post_num_peoples">인원수</string>
+    <string name="post_people_unit">명</string>
+    <string name="post_require_extra_pay">추가결제 필요 여부</string>
+    <string name="post_all_paid">바로 이용할 수 있어요</string>
+    <string name="post_booked">추가 결제가 필요해요</string>
+    <string name="post_paid">지불한 예약금</string>
+    <string name="post_price">판매가격</string>
+    <string name="post_additional">추가설명</string>
+    <string name="post_today">오늘</string>
+    <string name="post_since">부터</string>
+    <string name="post_apply">등록하기</string>
+    <string name="post_additional_hint">상품을 소개해주세요.</string>
+    
 </resources>

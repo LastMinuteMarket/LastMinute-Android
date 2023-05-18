@@ -18,4 +18,8 @@
 
     <color name="selector_nav_menu_text">#656565</color>
     <color name="selector_nav_menu_icon">#6C6C6C</color>
+    
+    <color name="iris_100">#5D5FEF</color>
+    <color name="iris_80">#7879F1</color>
+    <color name="iris_60">#A5A6F6</color>
 </resources>

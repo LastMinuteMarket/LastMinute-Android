@@ -14,7 +14,7 @@
 
     <!--  검색창  -->
     <string name="search_hint">카테고리, 제품명으로 검색하세요</string>
-    
+
     <!--  올리기 창  -->
     <string name="post_place">사용처</string>
     <string name="post_place_search">검색</string>
@@ -32,5 +32,10 @@
     <string name="post_since">부터</string>
     <string name="post_apply">등록하기</string>
     <string name="post_additional_hint">상품을 소개해주세요.</string>
-    
+
+    <!--  상세보기  -->
+    <string name="post_writer">판매자</string>
+    <string name="purchase">구매하기</string>능
+
+
 </resources>

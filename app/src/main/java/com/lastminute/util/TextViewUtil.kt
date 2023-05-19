@@ -38,6 +38,16 @@ fun TextView.setTextColorWhen(given: Boolean, activateColor: Int, defaultColor: 
 }
 
 @BindingAdapter("setIntegerText")
-fun EditText.setIntegerText(value: Integer) {
+fun TextView.setIntegerText(value: Integer) {
     setText(value.toString())
+}
+
+@BindingAdapter("setPriceText")
+fun TextView.setPriceText(value: Integer) {
+    setText("" + value + "원")
+}
+
+@BindingAdapter(value = ["menuString", "numPeople"])
+fun TextView.setBindMenu(menuString: String, numPeople: Int) {
+    setText("$menuString ($numPeople 인)")
 }

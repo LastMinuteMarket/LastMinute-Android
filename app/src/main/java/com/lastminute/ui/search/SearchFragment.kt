@@ -72,8 +72,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     private fun initAdapter() {
         productListAdapter = ProductListAdapter {
-//            val intent = Intent(context, DetailActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(context, DetailActivity::class.java)
+            startActivity(intent)
         }
         binding.rvProducts.adapter = productListAdapter
 

@@ -1,6 +1,6 @@
 package com.lastminute.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Camera
 import android.os.Bundle
 import androidx.annotation.UiThread
 import com.lastminute.common.BaseActivity
@@ -8,6 +8,8 @@ import com.lastminute.model.internal.ProductDetail
 import com.lastminute.ui.R
 import com.lastminute.ui.databinding.ActivityDetailBinding
 import com.lastminute.util.MapUtil.markAt
+import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import java.time.LocalDateTime
@@ -48,6 +50,11 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         map.uiSettings.isLocationButtonEnabled = true
 
         naverMap.markAt(dummy.lat, dummy.lot, dummy.title, dummy.menu + " (" + dummy.numPeoples + "인)")
+
+        val cameraUpdate = CameraUpdate.scrollTo(LatLng(dummy.lat, dummy.lot))
+        naverMap.moveCamera(cameraUpdate)
+        val zoomUpdate = CameraUpdate.zoomIn()
+        naverMap.moveCamera(zoomUpdate)
     }
 
     private fun loadNaverMap() {

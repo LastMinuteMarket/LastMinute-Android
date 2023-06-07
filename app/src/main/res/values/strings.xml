@@ -37,5 +37,13 @@
     <string name="post_writer">판매자</string>
     <string name="purchase">구매하기</string>능
 
+    <!-- 구매내역  -->
+    <string name="payment">결제</string>
+    <string name="assignment">양도</string>
+    <string name="complete">완료</string>
+    <string name="purchase_complete">거래 완료</string>
+    <string name="purchase_cancel">구매 철회</string>
+    <string name="purchase_price">결제 금액</string>
+
 
 </resources>

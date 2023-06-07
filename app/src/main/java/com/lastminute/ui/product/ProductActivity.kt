@@ -1,6 +1,5 @@
-package com.lastminute.ui.detail
+package com.lastminute.ui.product
 
-import android.graphics.Camera
 import android.os.Bundle
 import androidx.annotation.UiThread
 import com.lastminute.common.BaseActivity
@@ -14,7 +13,7 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import java.time.LocalDateTime
 
-class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail), OnMapReadyCallback {
+class ProductActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail), OnMapReadyCallback {
     private lateinit var naverMap: NaverMap
     private val dummy = ProductDetail(
         1,
@@ -39,6 +38,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         setDummy()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        naverMap.uiSettings.isZoomControlEnabled = true
+        naverMap.uiSettings.isLocationButtonEnabled = true
+    }
+
     private fun setDummy() {
         binding.data = dummy
     }
@@ -55,6 +60,9 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         naverMap.moveCamera(cameraUpdate)
         val zoomUpdate = CameraUpdate.zoomIn()
         naverMap.moveCamera(zoomUpdate)
+
+        naverMap.uiSettings.isLocationButtonEnabled = false
+        naverMap.uiSettings.isZoomControlEnabled = false
     }
 
     private fun loadNaverMap() {

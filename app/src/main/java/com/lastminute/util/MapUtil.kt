@@ -2,6 +2,7 @@ package com.lastminute.util
 
 import android.graphics.Color
 import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
@@ -20,5 +21,10 @@ object MapUtil {
         marker.subCaptionHaloColor = Color.rgb(200, 255, 200)
         marker.captionHaloColor = Color.WHITE
         marker.map = this
+    }
+
+    fun NaverMap.scrollMove(lat: Double, lot: Double) {
+        val cameraUpdate = CameraUpdate.scrollTo(LatLng(lat, lot))
+        moveCamera(cameraUpdate)
     }
 }

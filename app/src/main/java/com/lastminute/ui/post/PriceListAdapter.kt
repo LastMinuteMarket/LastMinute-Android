@@ -3,7 +3,7 @@ package com.lastminute.ui.post
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lastminute.model.internal.PriceTerm
+import com.lastminute.ui.model.PriceTerm
 import com.lastminute.ui.databinding.ItemPriceListBinding
 
 class PriceListAdapter() : RecyclerView.Adapter<PriceListAdapter.PriceTermHolder>() {

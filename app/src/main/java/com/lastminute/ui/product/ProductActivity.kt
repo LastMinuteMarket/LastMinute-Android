@@ -3,7 +3,7 @@ package com.lastminute.ui.product
 import android.os.Bundle
 import androidx.annotation.UiThread
 import com.lastminute.common.BaseActivity
-import com.lastminute.model.internal.ProductDetail
+import com.lastminute.ui.model.ProductDetail
 import com.lastminute.ui.R
 import com.lastminute.ui.databinding.ActivityDetailBinding
 import com.lastminute.util.MapUtil.markAt

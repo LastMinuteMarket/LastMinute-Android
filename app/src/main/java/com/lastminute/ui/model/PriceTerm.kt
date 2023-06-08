@@ -1,4 +1,4 @@
-package com.lastminute.model.internal
+package com.lastminute.ui.model
 
 import java.time.LocalDate
 

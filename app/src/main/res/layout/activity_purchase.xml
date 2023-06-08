@@ -6,7 +6,7 @@
     <data>
         <variable
             name="detail"
-            type="com.lastminute.model.internal.ProductDetail" />
+            type="com.lastminute.ui.model.ProductDetail" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,18 +19,21 @@
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:background="@drawable/ic_chevron_left"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:backgroundTint="@color/black"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_chevron_left"
+            android:padding="9dp"
+            android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btn_menu"
-            android:background="@drawable/ic_three_dots_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="9dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_three_dots_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -3,7 +3,7 @@ package com.lastminute.ui.search
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lastminute.model.internal.ProductSummary
+import com.lastminute.ui.model.ProductSummary
 import com.lastminute.ui.databinding.ItemPlaceListBinding
 
 class ProductListAdapter(private val onClick: () -> Unit) : RecyclerView.Adapter<ProductListAdapter.ProductHolder>() {

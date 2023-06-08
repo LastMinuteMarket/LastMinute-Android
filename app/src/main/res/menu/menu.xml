@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_post"
         android:title="@string/navigation_post"/>
     <item
-        android:id="@+id/navigation_notification"
-        android:icon="@drawable/ic_bell"
-        android:title="@string/navigation_notification"/>
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/navigation_chat"/>
     <item
         android:id="@+id/navigation_mypage"
         android:icon="@drawable/ic_person"

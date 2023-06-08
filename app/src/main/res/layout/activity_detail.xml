@@ -7,13 +7,13 @@
     <data>
         <variable
             name="data"
-            type="com.lastminute.model.internal.ProductDetail" />
+            type="com.lastminute.ui.model.ProductDetail" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".detail.DetailActivity">
+        tools:context=".product.ProductActivity">
 
         <FrameLayout
             android:id="@+id/fl_map"
@@ -87,8 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="12dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_product_address"
-                tools:layout_editor_absoluteX="21dp" />
+                app:layout_constraintTop_toBottomOf="@id/tv_product_address" />
 
             <TextView
                 android:id="@+id/tv_product_content"

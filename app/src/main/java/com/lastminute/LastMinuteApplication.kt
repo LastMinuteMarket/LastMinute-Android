@@ -3,6 +3,7 @@ package com.lastminute
 import android.app.Application
 import android.content.Context
 import com.lastminute.ui.main.MainViewModel
+import com.lastminute.ui.search.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -29,5 +30,6 @@ class LastMinuteApplication : Application() {
 
     private val viewModelModule = module {
         viewModel { MainViewModel() }
+        viewModel { SearchViewModel()}
     }
 }

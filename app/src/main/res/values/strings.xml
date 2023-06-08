@@ -19,6 +19,7 @@
     <!--  올리기 창  -->
     <string name="post_place">사용처</string>
     <string name="post_place_search">검색</string>
+    <string name="post_place_input">사용처명을 입력해주세요.</string>
     <string name="post_place_hint">사용처를 검색해주세요.</string>
     <string name="post_time">예약 시각</string>
     <string name="post_num_peoples">인원수</string>

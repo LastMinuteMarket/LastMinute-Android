@@ -3,26 +3,26 @@ package com.lastminute.ui.post
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.addTextChangedListener
-import com.lastminute.common.BaseFragment
+import com.lastminute.common.BaseActivity
 import com.lastminute.repository.model.product.PlacementDto
 import com.lastminute.repository.model.product.ProductCreateDto
 import com.lastminute.repository.model.product.ProductDetailDto
 import com.lastminute.ui.model.PriceTerm
 import com.lastminute.ui.R
-import com.lastminute.ui.databinding.FragmentPostBinding
+import com.lastminute.ui.databinding.ActivityPostBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post) {
+class PostActivity() : BaseActivity<ActivityPostBinding>(R.layout.activity_post) {
 
     private val postViewModel: PostViewModel by viewModel()
 
     private lateinit var placementListAdapter: PlacementListAdapter
     private lateinit var priceListAdapter: PriceListAdapter
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         initAdapter()
         initPlacement()
 
@@ -67,11 +67,11 @@ class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post)
     }
 
     private fun observeData() {
-        postViewModel.result.observe(requireActivity()) {
+        postViewModel.result.observe(this) {
             placementListAdapter.setData(it)
         }
 
-        postViewModel.placement.observe(requireActivity()) {
+        postViewModel.placement.observe(this) {
             binding.tvPlace.text = it.title
         }
     }
@@ -112,7 +112,7 @@ class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post)
                 )
             )
 
-
+            finish()
         }
     }
 

@@ -19,6 +19,9 @@
             android:name=".purchase.PurchaseActivity"
             android:exported="false" />
         <activity
+            android:name=".post.PostActivity"
+            android:exported="false" />
+        <activity
             android:name=".product.ProductActivity"
             android:exported="false" /> <!-- naver map -->
         <meta-data

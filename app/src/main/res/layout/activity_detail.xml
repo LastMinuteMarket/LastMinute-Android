@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="data"
-            type="com.lastminute.ui.model.ProductDetail" />
+            name="viewModel"
+            type="com.lastminute.ui.product.ProductViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_medium"
                 android:includeFontPadding="false"
-                android:text="@{data.title}"
+                android:text="@{viewModel.product.title}"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,8 +60,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"
-                app:menuString="@{data.menu}"
-                app:numPeople="@{data.numPeoples}"
+                app:menuString="@{viewModel.product.menu}"
+                app:numPeople="@{viewModel.product.numPeoples}"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_product_title"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"
-                android:text="@{data.address}"
+                android:text="@{viewModel.product.address}"
                 android:textColor="@color/dark_gray"
                 android:textSize="12sp"
                 android:layout_marginTop="4dp"
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_light"
                 android:includeFontPadding="false"
-                android:text="@{data.content}"
+                android:text="@{viewModel.product.content}"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:layout_marginTop="18dp"
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"
-                android:text="@{data.writer}"
+                android:text="@{viewModel.product.writer}"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_product_writer_prefix"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"
-                app:showLocalDateTime="@{data.time}"
+                app:showLocalDateTime="@{viewModel.product.time}"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_product_time_prefix"
@@ -215,7 +215,7 @@
                 android:includeFontPadding="false"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:text="@{data.allPaid ? @string/post_all_paid : @string/post_booked}"
+                android:text="@{viewModel.product.allPaid ? @string/post_all_paid : @string/post_booked}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_product_require_pay_prefix"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_product_require_pay_prefix"
@@ -228,7 +228,7 @@
                 android:includeFontPadding="false"
                 android:textColor="@color/gray"
                 android:textSize="12sp"
-                app:setPriceText="@{data.paid}"
+                app:setPriceText="@{viewModel.product.paid}"
                 app:showStrikeThrough="@{true}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_product_paid_prefix"
@@ -255,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"
-                app:setPriceText="@{data.price}"
+                app:setPriceText="@{viewModel.product.price}"
                 android:textColor="@color/blue"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/tv_product_price_prefix"

@@ -87,8 +87,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private fun initAdapter() {
-        productListAdapter = ProductListAdapter {
+        productListAdapter = ProductListAdapter { productId ->
             val intent = Intent(context, ProductActivity::class.java)
+            intent.putExtra("productId", productId)
             startActivity(intent)
         }
         binding.rvProducts.adapter = productListAdapter
@@ -133,7 +134,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         val locationRequest = LocationRequest.create()
         locationRequest.run {
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY //높은 정확도
-            interval = 1000 //1초에 한번씩 GPS 요청
+            interval = 1500 //1초에 한번씩 GPS 요청
         }
 
         locationCallBack = object : LocationCallback() {

@@ -1,9 +1,8 @@
 package com.lastminute.repository
 
 import com.google.gson.GsonBuilder
-import com.google.gson.internal.GsonBuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.lastminute.repository.api.SearchApi
+import com.lastminute.repository.api.ProductApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -45,7 +44,7 @@ object NetworkService {
             .build()
     }
 
-    val searchApi: SearchApi = retrofit().create(SearchApi::class.java)
+    val productApi: ProductApi = retrofit().create(ProductApi::class.java)
 
 
 }

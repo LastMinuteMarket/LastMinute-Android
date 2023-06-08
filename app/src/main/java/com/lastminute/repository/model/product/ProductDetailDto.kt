@@ -1,4 +1,4 @@
-package com.lastminute.repository.model
+package com.lastminute.repository.model.product
 
 import java.time.LocalDateTime
 

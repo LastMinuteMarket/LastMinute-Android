@@ -1,4 +1,4 @@
-package com.lastminute.repository.model
+package com.lastminute.repository.model.product
 
 data class ProductSummaryDto(
     val productId: Long,

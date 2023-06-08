@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lastminute.repository.NetworkService
-import com.lastminute.repository.repository.SearchRepository
+import com.lastminute.repository.repository.ProductRepository
 import com.lastminute.ui.model.Point
 import com.lastminute.ui.model.ProductSummary
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import kotlin.streams.toList
 
 class SearchViewModel : ViewModel() {
 
-    private val searchRepository = SearchRepository(NetworkService.searchApi)
+    private val productRepository = ProductRepository
 
     private val _products = MutableLiveData<MutableList<ProductSummary>>()
     val products: LiveData<MutableList<ProductSummary>>
@@ -30,7 +30,7 @@ class SearchViewModel : ViewModel() {
     private fun getProducts() {
         viewModelScope.launch {
 
-            val data = searchRepository.searchProducts(point.value?.lat ?: 0.0, point.value?.lot ?: 0.0)
+            val data = productRepository.searchProducts(point.value?.lat ?: 0.0, point.value?.lot ?: 0.0)
                 ?.stream()?.map {
                     ProductSummary(
                         id = it.productId,

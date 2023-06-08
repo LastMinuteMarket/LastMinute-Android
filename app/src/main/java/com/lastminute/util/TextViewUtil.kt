@@ -27,8 +27,9 @@ fun TextView.showStrikeThrough(show: Boolean) {
 }
 
 @BindingAdapter("showLocalDateTime")
-fun TextView.showLocalDateTime(time: LocalDateTime) {
-    text = TextViewUtil.timeFormatProduct(time)
+fun TextView.showLocalDateTime(time: LocalDateTime?) {
+    if (time != null)
+        text = TextViewUtil.timeFormatProduct(time)
 }
 
 @BindingAdapter(value = ["given", "activateColor", "defaultColor"])
@@ -38,16 +39,16 @@ fun TextView.setTextColorWhen(given: Boolean, activateColor: Int, defaultColor: 
 }
 
 @BindingAdapter("setIntegerText")
-fun TextView.setIntegerText(value: Integer) {
+fun TextView.setIntegerText(value: Integer?) {
     setText(value.toString())
 }
 
 @BindingAdapter("setPriceText")
-fun TextView.setPriceText(value: Integer) {
+fun TextView.setPriceText(value: Integer?) {
     setText("" + value + "원")
 }
 
 @BindingAdapter(value = ["menuString", "numPeople"])
-fun TextView.setBindMenu(menuString: String, numPeople: Int) {
+fun TextView.setBindMenu(menuString: String?, numPeople: Int?) {
     setText("$menuString ($numPeople 인)")
 }

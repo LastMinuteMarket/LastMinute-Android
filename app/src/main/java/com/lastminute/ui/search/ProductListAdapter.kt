@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lastminute.ui.model.ProductSummary
 import com.lastminute.ui.databinding.ItemPlaceListBinding
 
-class ProductListAdapter(private val onClick: () -> Unit) : RecyclerView.Adapter<ProductListAdapter.ProductHolder>() {
+class ProductListAdapter(private val onClick: (productID: Long) -> Unit) : RecyclerView.Adapter<ProductListAdapter.ProductHolder>() {
     private val dataList = mutableListOf<ProductSummary>()
 
     class ProductHolder(private val binding: ItemPlaceListBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -28,7 +28,7 @@ class ProductListAdapter(private val onClick: () -> Unit) : RecyclerView.Adapter
         holder.onBind(dataList[position])
 
         holder.itemView.setOnClickListener {
-            this.onClick()
+            this.onClick(dataList[position].id)
         }
     }
 

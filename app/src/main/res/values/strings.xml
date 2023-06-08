@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">LastMinute</string>
 
+    <!-- log in  -->
+    <string name="app_full_name">LastMinute\nMarket</string>
+    <string name="login_id">아이디</string>
+    <string name="login_password">비밀번호</string>
+    <string name="login">로그인</string>
+    <string name="signup">회원가입</string>
+    <string name="signup_email">이메일</string>
+    <string name="signup_complete">완료</string>
+    <string name="goto_signup">아직 회원이 아니신가요?</string>
+
     <!-- navigation  -->
     <string name="navigation_search">찾기</string>
     <string name="navigation_post">올리기</string>

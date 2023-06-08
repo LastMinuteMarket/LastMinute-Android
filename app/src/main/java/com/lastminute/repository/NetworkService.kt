@@ -2,6 +2,7 @@ package com.lastminute.repository
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.lastminute.repository.api.AuthApi
 import com.lastminute.repository.api.ProductApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,7 +15,7 @@ object NetworkService {
 
     const val BASE_URL = "http://10.0.2.2:8080/"
 
-    var userId: Int = 1
+    var userId: Long = 1
 
     private val debugInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -45,6 +46,6 @@ object NetworkService {
     }
 
     val productApi: ProductApi = retrofit().create(ProductApi::class.java)
-
+    val authApi: AuthApi = retrofit().create(AuthApi::class.java)
 
 }

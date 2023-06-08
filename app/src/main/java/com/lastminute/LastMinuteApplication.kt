@@ -2,6 +2,8 @@ package com.lastminute
 
 import android.app.Application
 import android.content.Context
+import com.lastminute.ui.auth.LoginViewModel
+import com.lastminute.ui.auth.SignupViewModel
 import com.lastminute.ui.main.MainViewModel
 import com.lastminute.ui.post.PostViewModel
 import com.lastminute.ui.product.ProductViewModel
@@ -35,5 +37,7 @@ class LastMinuteApplication : Application() {
         viewModel { SearchViewModel()}
         viewModel { ProductViewModel()}
         viewModel { PostViewModel() }
+        viewModel { LoginViewModel() }
+        viewModel { SignupViewModel() }
     }
 }

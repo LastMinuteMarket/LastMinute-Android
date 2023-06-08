@@ -109,7 +109,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
         map.uiSettings.isLocationButtonEnabled = true
 
-        naverMap.locationTrackingMode = LocationTrackingMode.Follow
+//        naverMap.locationTrackingMode = LocationTrackingMode.Follow
         naverMap.locationSource = locationSource
 
         naverMap.addOnLocationChangeListener { location ->

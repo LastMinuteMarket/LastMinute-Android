@@ -7,11 +7,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_round_stroke_8"
-        android:drawableLeft="@drawable/ic_calendar"
+        android:drawableLeft="@drawable/ic_clock"
         android:drawablePadding="8dp"
         android:fontFamily="@font/notosans_kr_regular"
         android:includeFontPadding="false"
@@ -21,6 +21,6 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2023년 5월 19일" />
+        tools:text="오후 3:00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@ package com.lastminute.ui.model
 import java.time.LocalDateTime
 
 data class ProductSummary(
-    val id: Int,
+    val id: Long,
     val lat: Double,
     val lot: Double,
     val title: String,
@@ -15,6 +15,6 @@ data class ProductSummary(
     val type: ProductType
 ) {
     enum class ProductType(val activate: Boolean) {
-        ALL_PAID(true), BOOKED(false)
+        PREPAID(true), DEPOSIT(false)
     }
 }

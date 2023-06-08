@@ -2,12 +2,17 @@ package com.lastminute.ui.post
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import com.lastminute.common.BaseFragment
+import com.lastminute.repository.model.product.PlacementDto
+import com.lastminute.repository.model.product.ProductCreateDto
+import com.lastminute.repository.model.product.ProductDetailDto
 import com.lastminute.ui.model.PriceTerm
 import com.lastminute.ui.R
 import com.lastminute.ui.databinding.FragmentPostBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post) {
 
@@ -22,6 +27,9 @@ class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post)
         initPlacement()
 
         observeData()
+        observePaidPrice()
+
+        initSubmitBtn()
     }
 
     private fun initPlacement() {
@@ -65,6 +73,46 @@ class PostFragment() : BaseFragment<FragmentPostBinding>(R.layout.fragment_post)
 
         postViewModel.placement.observe(requireActivity()) {
             binding.tvPlace.text = it.title
+        }
+    }
+
+    private fun observePaidPrice() {
+        binding.etPaid.addTextChangedListener {
+            binding.clPriceToday.originPrice = it?.toString()?.toInt() ?: 0
+        }
+    }
+
+    private fun initSubmitBtn() {
+        binding.btnPostApply.setOnClickListener {
+            val reservedDate = binding.btnDate.date
+            val hour = binding.tvTime.hour
+            val minute = binding.tvTime.minute
+            val reservationType =
+                if (binding.btnPrepaid.isSelected) "PREPAID"
+                else "DEPOSIT"
+
+            postViewModel.postProduct(
+                ProductCreateDto(
+                    placement = PlacementDto(
+                        title = postViewModel.placement.value!!.title,
+                        roadAddress = postViewModel.placement.value!!.roadAddress,
+                        pointX = postViewModel.placement.value!!.lat,
+                        pointY = postViewModel.placement.value!!.lot
+                    ),
+                    detail = ProductDetailDto(
+                        menu = binding.etMenu.text.toString(),
+                        description = binding.etPostAdditional.text.toString(),
+                        reservedPeoples = binding.etNumPeoples.text.toString().toInt(),
+                        reservedTime = LocalDateTime.of(reservedDate.year, reservedDate.month, reservedDate.dayOfMonth, hour, minute),
+                        reservationType = reservationType,
+                        pricePaid = binding.etPaid.text.toString().toInt(),
+                        priceNow = binding.clPriceToday.priceData.price.get()!!.toInt()
+                    ),
+                    priceSchedules = emptyList()
+                )
+            )
+
+
         }
     }
 

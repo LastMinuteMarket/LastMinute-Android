@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lastminute.repository.model.product.PlacementDto
+import com.lastminute.repository.model.product.ProductAllDto
+import com.lastminute.repository.model.product.ProductCreateDto
 import com.lastminute.repository.repository.NaverRepository
 import com.lastminute.repository.repository.ProductRepository
 import com.lastminute.ui.model.Placement
@@ -14,14 +16,8 @@ import kotlin.streams.toList
 
 class PostViewModel : ViewModel() {
 
+    val productId = MutableLiveData<Long>()
     val placement = MutableLiveData<Placement>()
-    var year = 0
-    var month = 0
-    var day = 0
-    var numPeoples = 0
-    var prepaid = false
-
-
 
     private val naverRepository = NaverRepository
     private val productRepository = ProductRepository
@@ -43,6 +39,13 @@ class PostViewModel : ViewModel() {
                         )
                     }?.toList()
             )
+        }
+    }
+
+    fun postProduct(productCreate: ProductCreateDto) {
+        viewModelScope.launch {
+            val product = productRepository.createProduct(productCreate)
+            productId.postValue(product?.productId)
         }
     }
 }

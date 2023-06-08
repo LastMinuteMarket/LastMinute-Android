@@ -15,7 +15,7 @@ class PriceSelectLayout(context: Context, attrs: AttributeSet) : ConstraintLayou
             field = if (value == 0) 1 else value
         }
 
-    private val priceData = PriceField()
+    val priceData = PriceField()
 
     init {
         binding.priceData = priceData
